@@ -1,0 +1,26 @@
+version: '2'
+services:
+    ldap-service:
+        image: "osixia/openldap"
+        container_name: "ldap-service"
+        hostname: "ldap-service"
+    phpldapadmin-service:
+        image: "osixia/phpldapadmin"
+        container_name: "phpldapadmin-service"
+        hostname: "phpldapadmin-service"
+        ports: 
+            - "443:443"
+        links:
+            - "ldap-service:ldap-host"
+        environment:
+            - PHPLDAPADMIN_LDAP_HOSTS=ldap-host
+        depends_on:
+            - ldap-service
+    ldap-client:
+        image: "osixia/openldap"
+        container_name: "ldap-client"
+        hostname: "ldap-client"
+        links:
+            - "ldap-service:ldap-service"
+        depends_on:
+            - ldap-service
