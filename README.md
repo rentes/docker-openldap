@@ -8,12 +8,12 @@ A simple docker-based OpenLDAP client server tutorial
 ## Server
 
 - OpenLDAP is based on docker image from [osixia/openldap:latest](https://hub.docker.com/r/osixia/openldap/).
-- phpLDAPadmin is bases on docker image from [osixia/phpldapadmin:latest](https://hub.docker.com/r/osixia/phpldapadmin/).
+- phpLDAPadmin is based on docker image from [osixia/phpldapadmin:latest](https://hub.docker.com/r/osixia/phpldapadmin/).
 
 Usage: ```server.sh start | stop | restart```
 
 The start option runs the OpenLDAP + phpLDAPadmin docker containers.
-The stop options stops the containers and removes them.
+The stop option stops the containers and removes them.
 
 After starting the server container, you can access your favorite web browser and hit the URL `https://localhost` for using the phpLDAPadmin web interface:
 
@@ -36,8 +36,8 @@ You can then manage the LDAP directories and perform the most common actions fro
 
 Usage: ```client.sh start | stop | restart```
 
-The start option runs the OpenLDAP container and performs an ldap search from the command-line.
-The stop options stops the container and removes them.
+The start option runs the OpenLDAP container and performs an ldap search from the command-line (see below the ldap search test).
+The stop option stops the container and removes them.
 
 ## Docker-compose
 
@@ -87,6 +87,8 @@ result: 0 Success
 # numResponses: 3
 # numEntries: 2
 ```
+
+Finally, the command
 
 ```bash
 $ docker-compose down
