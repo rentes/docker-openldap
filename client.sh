@@ -1,4 +1,5 @@
 #!/bin/bash -e
+# Author: Miguel Rentes
 
 startcontainer() {
     docker run --name ldap-client --hostname ldap-client --link ldap-service:ldap-service --detach osixia/openldap
